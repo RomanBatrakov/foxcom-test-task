@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+#  server:
+#    build: server
+#    image: server
+#    container_name: shareit-server
+#    restart: always
+#    ports:
+#      - "9090:9090"
+#    depends_on:
+#      - db
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/ftt-db
+#      - POSTGRES_USER=root
+#      - POSTGRES_PASSWORD=root
+
+  ftt-db:
+    image: postgres:15.2-alpine
+    restart: always
+    container_name: ftt-db
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - "5431:5432"
+    environment:
+      - POSTGRES_DB=ftt-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
