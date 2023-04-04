@@ -9,12 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,9 +35,8 @@ public class Application {
     private Hunter hunter;
     @Enumerated(EnumType.STRING)
     private ApplicationCategory category;
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "resource_id", referencedColumnName = "id")
-    private Resource resource;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @OneToMany(mappedBy = "application")
+    private Set<Resource> resources;
 }
