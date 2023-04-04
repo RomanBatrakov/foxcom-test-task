@@ -27,6 +27,7 @@ public class ResourceType {
     private Long id;
     @Column(name = "name", unique = true)
     private String name;
+    private Long quota;
     private LocalDate startDate;
     private LocalDate endDate;
 }

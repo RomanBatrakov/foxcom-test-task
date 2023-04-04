@@ -29,6 +29,6 @@ public class Resource {
     @JoinColumn(name = "resourceType_id", referencedColumnName = "id")
     private ResourceType resourceType;
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "area", referencedColumnName = "id")
+    @JoinColumn(name = "area_id", referencedColumnName = "id")
     private HuntingArea area;
 }
