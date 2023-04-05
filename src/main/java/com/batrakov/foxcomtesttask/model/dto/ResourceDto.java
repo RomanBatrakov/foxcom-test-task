@@ -1,7 +1,5 @@
 package com.batrakov.foxcomtesttask.model.dto;
 
-import com.batrakov.foxcomtesttask.model.HuntingArea;
-import com.batrakov.foxcomtesttask.model.ResourceType;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +12,14 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewResourcesDto {
-    private ResourceType resourceType;
-    private HuntingArea area;
+public class ResourceDto {
+    private Long id;
+    @Positive(message = " is not positive")
+    private Long resourceTypeId;
+    @Positive(message = " is not positive")
+    private Long areaId;
     @Positive(message = " is not positive")
     private Long amount;
+    @Positive(message = " is not positive")
+    private Long applicationId;
 }

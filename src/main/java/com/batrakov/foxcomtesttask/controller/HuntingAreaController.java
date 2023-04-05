@@ -1,7 +1,8 @@
 package com.batrakov.foxcomtesttask.controller;
 
-import com.batrakov.foxcomtesttask.model.dto.ApplicationDto;
-import com.batrakov.foxcomtesttask.service.ApplicationService;
+import com.batrakov.foxcomtesttask.model.HuntingArea;
+import com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto;
+import com.batrakov.foxcomtesttask.service.HuntingAreaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @Validated
 @RestController
-@RequestMapping(path = "/applications")
+@RequestMapping(path = "/areas")
 @RequiredArgsConstructor
-public class ApplicationController {
-    private final ApplicationService applicationService;
+public class HuntingAreaController {
+    private final HuntingAreaService huntingAreaService;
 
     @PostMapping
-    public ApplicationDto createApplication(@Valid @RequestBody ApplicationDto applicationDto) {
-        log.info("POST request for path /applications with application: {}", applicationDto);
-        return applicationService.createApplication(applicationDto);
+    public HuntingAreaDto createArea(@Valid @RequestBody HuntingAreaDto huntingAreaDto) {
+        log.info("POST request for path /areas with huntingArea: {}", huntingAreaDto);
+        return huntingAreaService.createArea(huntingAreaDto);
     }
 }

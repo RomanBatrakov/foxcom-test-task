@@ -1,25 +1,28 @@
 package com.batrakov.foxcomtesttask.model.dto;
 
-import com.batrakov.foxcomtesttask.model.ApplicationCategory;
-import com.batrakov.foxcomtesttask.model.Resource;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewApplicationDto {
+public class ResourceTypeDto {
+    private Long id;
+    @Size(min = 2)
     @NotBlank(message = " is blank or null")
-    private Long hunterId;
-    private ApplicationCategory category;
-    @NotBlank(message = " is blank or null")
-    private Set<Resource> newResourcesDto;
+    private String name;
+    @Positive
+    private Long quota;
+    private LocalDate startDate;
+    private LocalDate endDate;
 }

@@ -1,26 +1,15 @@
 package com.batrakov.foxcomtesttask.mapper;
 
 import com.batrakov.foxcomtesttask.model.Application;
-import com.batrakov.foxcomtesttask.model.Hunter;
-import com.batrakov.foxcomtesttask.model.dto.NewApplicationDto;
-import com.batrakov.foxcomtesttask.service.HunterService;
+import com.batrakov.foxcomtesttask.model.dto.ApplicationDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
-import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ApplicationMapper {
-    HunterService hunterService;
+    Application toApplication(ApplicationDto applicationDto);
 
-    @Mapping(target = "hunter", source = "hunterId", qualifiedByName = "toHunter")
-    @Mapping(target = "resources", source = "newResourcesDto", qualifiedByName = "toResources")
-    @Mapping(target = "status", constant = "PENDING")
-    Application toApplication(NewApplicationDto newApplicationDto);
+    ApplicationDto toApplicationDto(Application application);
 
-    @Named("toHunter")
-    default Hunter toHunter(Long hunterId) {
-        return hunterService.findHunterById(hunterId);
-    }
 }
