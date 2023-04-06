@@ -20,6 +20,4 @@ public class ResourceDto {
     private Long areaId;
     @Positive(message = " is not positive")
     private Long amount;
-    @Positive(message = " is not positive")
-    private Long applicationId;
 }

@@ -22,7 +22,7 @@ public class ResourceController {
     private final ResourceService resourceService;
 
     @PostMapping
-    public ResourceTypeDto createResource(@Valid @RequestBody ResourceDto resourceDto) {
+    public ResourceDto createResource(@Valid @RequestBody ResourceDto resourceDto) {
         log.info("POST request for path /resources with resource: {}", resourceDto);
         return resourceService.createResource(resourceDto);
     }

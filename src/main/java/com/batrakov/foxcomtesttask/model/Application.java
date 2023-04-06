@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,10 +32,11 @@ public class Application {
     private String ticketSeries;
     private Integer ticketNumber;
     private LocalDate issueDate;
+    private LocalDate applicationDate;
     @Enumerated(EnumType.STRING)
     private ApplicationCategory category;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @OneToMany(mappedBy = "application")
-    private Set<Resource> resources;
+    @OneToMany
+    private List<Resource> resources;
 }

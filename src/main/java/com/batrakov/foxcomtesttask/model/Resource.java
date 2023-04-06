@@ -34,7 +34,4 @@ public class Resource {
     @JoinColumn(name = "area_id", referencedColumnName = "id")
     private HuntingArea area;
     private Long amount;
-    @ManyToOne
-    @JoinColumn(name = "application_id")
-    private Application application;
 }
