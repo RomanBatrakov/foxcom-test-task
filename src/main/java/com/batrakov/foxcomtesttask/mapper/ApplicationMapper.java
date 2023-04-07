@@ -21,4 +21,16 @@ public interface ApplicationMapper {
     ApplicationDto toApplicationDto(Application application);
 
     List<ApplicationDto> toApplicationDtoList(List<Application> applications);
+
+    List<Resource> toResourceList(List<ResourceDto> resourcesDto);
+
+    List<ResourceDto> toResourceDtoList(List<Resource> resources);
+
+    @Mapping(target = "resourceType", ignore = true)
+    @Mapping(target = "area", ignore = true)
+    Resource toResource(ResourceDto resourceDto);
+
+    @Mapping(target = "resourceTypeId", source = "resourceType.id")
+    @Mapping(target = "areaId", source = "area.id")
+    ResourceDto toResourceDto(Resource resource);
 }

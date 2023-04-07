@@ -1,5 +1,6 @@
 package com.batrakov.foxcomtesttask.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -37,6 +38,6 @@ public class Application {
     private ApplicationCategory category;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @OneToMany
+    @OneToMany(mappedBy = "application", cascade = CascadeType.ALL)
     private List<Resource> resources;
 }

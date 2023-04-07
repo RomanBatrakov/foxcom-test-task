@@ -15,17 +15,20 @@ import com.batrakov.foxcomtesttask.service.HuntingAreaService;
 import com.batrakov.foxcomtesttask.service.ResourceService;
 import com.batrakov.foxcomtesttask.service.ResourceTypeService;
 import com.github.javafaker.Faker;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
 @Slf4j
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class ApplicationServiceImpl implements ApplicationService {
@@ -42,13 +45,14 @@ public class ApplicationServiceImpl implements ApplicationService {
         ApplicationCategory category = ApplicationCategory.from(applicationDto.getCategory())
                                                           .orElseThrow(
                                                                   () -> new ValidationException("Unknown category"));
-        List<Resource> resources = resourceService.createResources(applicationDto.getResourcesDto());
+        List<Resource> resources = resourceService.createResources(applicationDto.getResources());
         newApplication.setApplicationDate(LocalDate.now());
         newApplication.setCategory(category);
         newApplication.setResources(resources);
         newApplication.setStatus(Status.IN_PROGRESS);
-
-        return applicationMapper.toApplicationDto(applicationRepository.save(newApplication));
+        Application application = applicationRepository.save(newApplication);
+        resourceService.updateResourcesWithApplications(Collections.singletonList(application));
+        return applicationMapper.toApplicationDto(application);
     }
 
     @Override
@@ -65,7 +69,6 @@ public class ApplicationServiceImpl implements ApplicationService {
     public List<ApplicationDto> generateApplications(Long count) {
         List<HuntingArea> huntingAreaList = huntingAreaService.generateHuntingAreas(15);
         List<ResourceType> resourceTypeList = resourceTypeService.generateResourceTypes(15);
-
 
         List<Application> applications = new ArrayList<>();
         Faker faker = new Faker();
@@ -87,6 +90,8 @@ public class ApplicationServiceImpl implements ApplicationService {
                     resourceService.generateResources((random.nextInt(3) + 1), huntingAreaList, resourceTypeList));
             applications.add(application);
         }
-        return applicationMapper.toApplicationDtoList(applicationRepository.saveAll(applications));
+        List<Application> applicationList = applicationRepository.saveAll(applications);
+        resourceService.updateResourcesWithApplications(applicationList);
+        return applicationMapper.toApplicationDtoList(applicationList);
     }
 }

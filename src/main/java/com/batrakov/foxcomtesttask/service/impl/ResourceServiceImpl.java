@@ -3,6 +3,7 @@ package com.batrakov.foxcomtesttask.service.impl;
 import com.batrakov.foxcomtesttask.dao.ResourceRepository;
 import com.batrakov.foxcomtesttask.exeption.ValidationException;
 import com.batrakov.foxcomtesttask.mapper.ResourceMapper;
+import com.batrakov.foxcomtesttask.model.Application;
 import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.Resource;
 import com.batrakov.foxcomtesttask.model.ResourceType;
@@ -83,5 +84,16 @@ public class ResourceServiceImpl implements ResourceService {
             resources.add(resource);
         }
         return resourceRepository.saveAll(resources);
+    }
+
+    @Override
+    public void updateResourcesWithApplications(List<Application> applications) {
+        for (Application application : applications) {
+            List<Resource> resources = application.getResources();
+            for (Resource resource : resources) {
+                resource.setApplication(application);
+            }
+            resourceRepository.saveAll(resources);
+        }
     }
 }

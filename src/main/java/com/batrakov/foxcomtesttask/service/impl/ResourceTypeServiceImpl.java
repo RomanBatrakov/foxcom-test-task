@@ -7,6 +7,7 @@ import com.batrakov.foxcomtesttask.model.ResourceType;
 import com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto;
 import com.batrakov.foxcomtesttask.service.ResourceTypeService;
 import com.github.javafaker.Faker;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,10 +15,13 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Slf4j
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class ResourceTypeServiceImpl implements ResourceTypeService {
@@ -58,18 +62,28 @@ public class ResourceTypeServiceImpl implements ResourceTypeService {
 
     @Override
     public List<ResourceType> generateResourceTypes(int count) {
-        List<ResourceType> resourceTypes = new ArrayList<>();
-        Faker faker = new Faker();
-        for (int i = 0; i < count; i++) {
-            int daysToAdd = faker.number().numberBetween(1, 364);
+        List<ResourceType> resourceTypes = resourceTypeRepository.findAll();
+        if (resourceTypes.isEmpty()) {
+            Faker faker = new Faker();
+            Set<String> usedNames = new HashSet<>();
+            for (int i = 0; i < count; i++) {
+                String name;
+                do {
+                    name = faker.animal().name();
+                } while (usedNames.contains(name));
+                usedNames.add(name);
+                int daysToAdd = faker.number().numberBetween(1, 364);
 
-            ResourceType resourceType = new ResourceType();
-            resourceType.setName(faker.animal().name());
-            resourceType.setQuota((long) faker.number().numberBetween(50, 300));
-            resourceType.setStartDate(LocalDate.now().plusDays(daysToAdd));
-            resourceType.setEndDate(LocalDate.now().plusDays(daysToAdd + 90));
-            resourceTypes.add(resourceType);
+                ResourceType resourceType = new ResourceType();
+                resourceType.setName(name);
+                resourceType.setQuota((long) faker.number().numberBetween(50, 300));
+                resourceType.setStartDate(LocalDate.now().plusDays(daysToAdd));
+                resourceType.setEndDate(LocalDate.now().plusDays(daysToAdd + 90));
+                resourceTypes.add(resourceType);
+            }
+            return resourceTypeRepository.saveAll(resourceTypes);
+        } else {
+            return resourceTypes;
         }
-        return resourceTypeRepository.saveAll(resourceTypes);
     }
 }

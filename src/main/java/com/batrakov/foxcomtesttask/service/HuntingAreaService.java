@@ -4,6 +4,7 @@ import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto;
 
 import java.util.List;
+import java.util.Set;
 
 public interface HuntingAreaService {
     HuntingAreaDto createArea(HuntingAreaDto huntingAreaDto);

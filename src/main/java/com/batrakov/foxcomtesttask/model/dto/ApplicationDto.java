@@ -1,6 +1,5 @@
 package com.batrakov.foxcomtesttask.model.dto;
 
-import com.batrakov.foxcomtesttask.model.Resource;
 import com.batrakov.foxcomtesttask.model.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
@@ -33,5 +32,5 @@ public class ApplicationDto {
     private String category;
     private Status status;
     @NotBlank(message = " is blank or null")
-    private List<ResourceDto> resourcesDto;
+    private List<ResourceDto> resources;
 }

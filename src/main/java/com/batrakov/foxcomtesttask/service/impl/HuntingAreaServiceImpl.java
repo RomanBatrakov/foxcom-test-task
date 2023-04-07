@@ -7,16 +7,20 @@ import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto;
 import com.batrakov.foxcomtesttask.service.HuntingAreaService;
 import com.github.javafaker.Faker;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Slf4j
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class HuntingAreaServiceImpl implements HuntingAreaService {
@@ -57,13 +61,24 @@ public class HuntingAreaServiceImpl implements HuntingAreaService {
 
     @Override
     public List<HuntingArea> generateHuntingAreas(int count) {
-        List<HuntingArea> huntingAreas = new ArrayList<>();
-        Faker faker = new Faker();
-        for (int i = 0; i < count; i++) {
-            HuntingArea huntingArea = new HuntingArea();
-            huntingArea.setName("Russia, " + faker.address().state() + " Hunting Area");
-            huntingAreas.add(huntingArea);
+        List<HuntingArea> huntingAreas = huntingAreaRepository.findAll();
+        if (huntingAreas.isEmpty()) {
+            Faker faker = new Faker();
+            Set<String> usedNames = new HashSet<>();
+            for (int i = 0; i < count; i++) {
+                String name;
+                do {
+                    name = ("Russia, " + faker.address().state() + " Hunting Area");
+                } while (usedNames.contains(name));
+                usedNames.add(name);
+
+                HuntingArea huntingArea = new HuntingArea();
+                huntingArea.setName(name);
+                huntingAreas.add(huntingArea);
+            }
+            return huntingAreaRepository.saveAll(huntingAreas);
+        } else {
+            return huntingAreas;
         }
-        return huntingAreaRepository.saveAll(huntingAreas);
     }
 }

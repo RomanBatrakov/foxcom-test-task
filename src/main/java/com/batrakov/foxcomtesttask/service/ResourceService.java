@@ -1,5 +1,6 @@
 package com.batrakov.foxcomtesttask.service;
 
+import com.batrakov.foxcomtesttask.model.Application;
 import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.Resource;
 import com.batrakov.foxcomtesttask.model.ResourceType;
@@ -13,4 +14,6 @@ public interface ResourceService {
     List<Resource> createResources(List<ResourceDto> resourcesDto);
 
     List<Resource> generateResources(int count, List<HuntingArea> huntingAreaList, List<ResourceType> resourceTypeList);
+
+    void updateResourcesWithApplications(List<Application> applications);
 }
