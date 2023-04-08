@@ -7,6 +7,7 @@ import com.batrakov.foxcomtesttask.model.Application;
 import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.Resource;
 import com.batrakov.foxcomtesttask.model.ResourceType;
+import com.batrakov.foxcomtesttask.model.Status;
 import com.batrakov.foxcomtesttask.model.dto.ResourceDto;
 import com.batrakov.foxcomtesttask.service.HuntingAreaService;
 import com.batrakov.foxcomtesttask.service.ResourceService;
@@ -40,6 +41,7 @@ public class ResourceServiceImpl implements ResourceService {
         Resource newResource = resourceMapper.toResource(resourceDto);
         newResource.setResourceType(resourceType);
         newResource.setArea(huntingArea);
+        newResource.setStatus(Status.IN_PROGRESS);
 
         try {
             Resource resource = resourceRepository.save(newResource);

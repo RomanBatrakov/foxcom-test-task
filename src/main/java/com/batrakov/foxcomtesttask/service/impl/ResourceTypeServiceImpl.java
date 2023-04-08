@@ -14,7 +14,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -58,6 +57,12 @@ public class ResourceTypeServiceImpl implements ResourceTypeService {
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("ResourceType is not found");
         }
+    }
+
+    @Override
+    public List<ResourceType> getAllResourceType() {
+        log.info("Finding all resourceTypes");
+        return resourceTypeRepository.findAll();
     }
 
     @Override

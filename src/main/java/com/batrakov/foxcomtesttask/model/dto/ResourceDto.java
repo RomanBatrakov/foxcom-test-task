@@ -1,5 +1,6 @@
 package com.batrakov.foxcomtesttask.model.dto;
 
+import com.batrakov.foxcomtesttask.model.Status;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,4 +21,6 @@ public class ResourceDto {
     private Long areaId;
     @Positive(message = " is not positive")
     private Long amount;
+    private Long applicationId;
+    private Status status;
 }

@@ -11,4 +11,12 @@ public interface ApplicationService {
     Application findApplicationById(Long applicationId);
 
     List<ApplicationDto> generateApplications(Long count);
+
+    ApplicationDto getApplicationById(Long id);
+
+    void deleteApplication(Long id);
+
+    List<ApplicationDto> getAllApplications();
+
+    void checkingApplications(boolean flag);
 }

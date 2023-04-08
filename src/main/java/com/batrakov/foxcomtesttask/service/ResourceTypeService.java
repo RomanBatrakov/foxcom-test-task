@@ -12,5 +12,7 @@ public interface ResourceTypeService {
 
     List<ResourceType> getResourceTypesByIds(List<Long> resourceTypeIdList);
 
+    List<ResourceType> getAllResourceType();
+
     List<ResourceType> generateResourceTypes(int count);
 }

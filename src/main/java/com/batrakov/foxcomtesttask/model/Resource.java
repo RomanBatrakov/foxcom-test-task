@@ -2,6 +2,8 @@ package com.batrakov.foxcomtesttask.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,4 +39,6 @@ public class Resource {
     @ManyToOne
     @JoinColumn(name = "application_id", referencedColumnName = "id")
     private Application application;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

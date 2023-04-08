@@ -6,6 +6,7 @@ public enum Status {
     REJECTED,
     APPROVED,
     IN_PROGRESS,
+    PARTIALLY_APPROVED,
     CANCELED;
 
     public static Optional<Status> from(String value) {

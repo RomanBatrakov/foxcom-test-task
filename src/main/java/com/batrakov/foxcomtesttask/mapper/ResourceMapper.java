@@ -17,6 +17,7 @@ public interface ResourceMapper {
 
     @Mapping(target = "resourceTypeId", source = "resourceType.id")
     @Mapping(target = "areaId", source = "area.id")
+    @Mapping(target = "applicationId", source = "application.id")
     ResourceDto toResourceDto(Resource resource);
 
     List<Resource> toResourceList(List<ResourceDto> resourcesDto);
