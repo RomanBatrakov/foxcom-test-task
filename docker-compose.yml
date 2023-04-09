@@ -1,18 +1,17 @@
 version: '3.8'
 services:
-#  server:
-#    build: server
-#    image: server
-#    container_name: shareit-server
-#    restart: always
-#    ports:
-#      - "9090:9090"
-#    depends_on:
-#      - db
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/ftt-db
-#      - POSTGRES_USER=root
-#      - POSTGRES_PASSWORD=root
+  server:
+    build: .
+    container_name: foxcom-test-task
+    restart: always
+    ports:
+      - "8084:8084"
+    depends_on:
+      - ftt-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ftt-db:5432/ftt-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
 
   ftt-db:
     image: postgres:15.2-alpine
