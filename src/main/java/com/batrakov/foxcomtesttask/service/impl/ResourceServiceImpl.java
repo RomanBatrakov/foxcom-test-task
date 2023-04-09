@@ -19,6 +19,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -65,6 +66,7 @@ public class ResourceServiceImpl implements ResourceService {
         for (int i = 0; i < resources.size(); i++) {
             resources.get(i).setResourceType(resourceTypeList.get(i));
             resources.get(i).setArea(huntingAreaList.get(i));
+            resources.get(i).setStatus(Status.IN_PROGRESS);
         }
         return resourceRepository.saveAll(resources);
     }
@@ -83,6 +85,7 @@ public class ResourceServiceImpl implements ResourceService {
             resource.setArea(randomHuntingArea);
             resource.setResourceType(randomResourceType);
             resource.setAmount((long) (random.nextInt(20) + 1));
+            resource.setStatus(Status.IN_PROGRESS);
             resources.add(resource);
         }
         return resourceRepository.saveAll(resources);
@@ -96,6 +99,30 @@ public class ResourceServiceImpl implements ResourceService {
                 resource.setApplication(application);
             }
             resourceRepository.saveAll(resources);
+        }
+    }
+
+    @Override
+    public List<Resource> updateResources(List<ResourceDto> resourceDtoList, List<Resource> resourceList) {
+        if (resourceDtoList.isEmpty()) {
+            return resourceList;
+        } else {
+            List<Resource> sortedResourceList =
+                    resourceList.stream().sorted(Comparator.comparingLong(Resource::getId)).toList();
+            List<ResourceDto> sortedResourceDtoList =
+                    resourceDtoList.stream().sorted(Comparator.comparingLong(ResourceDto::getId)).toList();
+
+            for (int i = 0; i < sortedResourceDtoList.size(); i++) {
+                Resource resource = sortedResourceList.get(i);
+                ResourceDto resourceDto = sortedResourceDtoList.get(i);
+                if (resourceDto.getId().equals(resource.getId())) {
+                    resource.setResourceType(resourceTypeService.findResourceTypeById(resourceDto.getResourceTypeId()));
+                    resource.setAmount(resourceDto.getAmount());
+                    resource.setArea(huntingAreaService.findAreaById(resourceDto.getAreaId()));
+                    resource.setStatus(Status.IN_PROGRESS);
+                }
+            }
+            return sortedResourceList;
         }
     }
 }

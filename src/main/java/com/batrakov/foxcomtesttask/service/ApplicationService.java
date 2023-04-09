@@ -19,4 +19,6 @@ public interface ApplicationService {
     List<ApplicationDto> getAllApplications();
 
     void checkingApplications(boolean flag);
+
+    ApplicationDto updateApplication(ApplicationDto applicationDto);
 }

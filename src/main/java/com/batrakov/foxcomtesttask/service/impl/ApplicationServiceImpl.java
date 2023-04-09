@@ -27,12 +27,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import static com.batrakov.foxcomtesttask.model.Status.APPROVED;
+import static com.batrakov.foxcomtesttask.model.Status.IN_PROGRESS;
 import static com.batrakov.foxcomtesttask.model.Status.PARTIALLY_APPROVED;
 import static com.batrakov.foxcomtesttask.model.Status.REJECTED;
+import static com.batrakov.foxcomtesttask.service.ApplicationValidator.checkApplicationDate;
+import static com.batrakov.foxcomtesttask.service.ApplicationValidator.checkQuote;
+import static com.batrakov.foxcomtesttask.service.ApplicationValidator.checkResourceArea;
 
 @Slf4j
 @Transactional
@@ -61,6 +65,22 @@ public class ApplicationServiceImpl implements ApplicationService {
         Application application = applicationRepository.save(newApplication);
         resourceService.updateResourcesWithApplications(Collections.singletonList(application));
         return applicationMapper.toApplicationDto(application);
+    }
+
+    @Override
+    public ApplicationDto updateApplication(ApplicationDto applicationDto) {
+        log.info("Updating application: {}", applicationDto);
+        Optional<Application> application = applicationRepository.findById(applicationDto.getId());
+        if (application.isPresent()) {
+            Application updatedApplication = applicationMapper.partialUpdate(applicationDto, application.get());
+            updatedApplication.setStatus(IN_PROGRESS);
+            updatedApplication.setResources(
+                    resourceService.updateResources(applicationDto.getResources(), application.get().getResources()));
+            return applicationMapper.toApplicationDto(updatedApplication);
+        } else {
+            throw new NoSuchElementException(
+                    String.format("Application with id %s is not found", applicationDto.getId()));
+        }
     }
 
     @Override
@@ -138,7 +158,6 @@ public class ApplicationServiceImpl implements ApplicationService {
             for (Application application : applicationList) {
                 if (startFlag) {
                     List<Resource> resources = application.getResources();
-
                     for (Resource resource : resources) {
                         if (checkApplicationDate(resource, application) &&
                                 checkResourceArea(resource, application, applicationList, applicationApprovedList) &&
@@ -148,6 +167,7 @@ public class ApplicationServiceImpl implements ApplicationService {
                             resource.setStatus(REJECTED);
                         }
                     }
+                    application.setStatus(updateApplicationStatus(resources));
                 }
             }
             applicationRepository.saveAll(applicationList);
@@ -157,57 +177,25 @@ public class ApplicationServiceImpl implements ApplicationService {
         }
     }
 
-    private boolean checkQuote(Resource res, List<Application> applicationList,
-                               List<Application> applicationApprovedList) {
-        Long amount1 = getAmountQuoteFromList(res, applicationList);
-        Long amount2 = getAmountQuoteFromList(res, applicationApprovedList);
-        Long quota = res.getResourceType().getQuota();
-        return (quota - amount1 - amount2 - res.getAmount()) >= 0;
-    }
+    public Status updateApplicationStatus(List<Resource> resources) {
+        boolean allApproved = true;
+        boolean allRejected = true;
 
-    private Long getAmountQuoteFromList(Resource res, List<Application> applicationList) {
-        return applicationList.stream()
-                              .flatMap(application -> application.getResources().stream())
-                              .filter(resource -> resource.getResourceType().equals(res.getResourceType()))
-                              .filter(resource -> resource.getStatus().equals(APPROVED))
-                              .mapToLong(Resource::getAmount)
-                              .sum();
-    }
+        for (Resource resource : resources) {
+            if (resource.getStatus() != Status.APPROVED) {
+                allApproved = false;
+            }
+            if (resource.getStatus() != Status.REJECTED) {
+                allRejected = false;
+            }
+        }
 
-    private boolean checkResourceArea(Resource resource, Application application, List<Application> applicationList,
-                                      List<Application> applicationApprovedList) {
-        HuntingArea area = resource.getArea();
-        ResourceType type = resource.getResourceType();
-        String ticketSeries = application.getTicketSeries();
-        Integer ticketNumber = application.getTicketNumber();
-
-        List<Application> applicationList1 =
-                filterApplications(applicationList, area, type, ticketSeries, ticketNumber);
-        List<Application> applicationList2 =
-                filterApplications(applicationApprovedList, area, type, ticketSeries, ticketNumber);
-
-        return applicationList1.isEmpty() && applicationList2.isEmpty();
-    }
-
-    private List<Application> filterApplications(List<Application> applicationList, HuntingArea area,
-                                                 ResourceType resourceType, String ticketSeries, Integer ticketNumber) {
-        return applicationList.stream()
-                              .filter(application -> application.getResources()
-                                                                .stream()
-                                                                .anyMatch(
-                                                                        resource -> !resource.getArea().equals(area) &&
-                                                                                resource.getResourceType()
-                                                                                        .equals(resourceType) &&
-                                                                                resource.getStatus().equals(APPROVED) &&
-                                                                                application.getTicketSeries()
-                                                                                           .equals(ticketSeries) &&
-                                                                                application.getTicketNumber()
-                                                                                           .equals(ticketNumber)))
-                              .collect(Collectors.toList());
-    }
-
-    private boolean checkApplicationDate(Resource resource, Application application) {
-        return application.getApplicationDate().isAfter(resource.getResourceType().getStartDate()) &&
-                application.getApplicationDate().isBefore(resource.getResourceType().getEndDate());
+        if (allApproved) {
+            return Status.APPROVED;
+        } else if (allRejected) {
+            return Status.REJECTED;
+        } else {
+            return Status.PARTIALLY_APPROVED;
+        }
     }
 }

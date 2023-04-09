@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,12 @@ public class ApplicationController {
     public ApplicationDto createApplication(@Valid @RequestBody ApplicationDto applicationDto) {
         log.info("POST request for path /applications with application: {}", applicationDto);
         return applicationService.createApplication(applicationDto);
+    }
+
+    @PatchMapping
+    public ApplicationDto updateApplication(@RequestBody ApplicationDto applicationDto) {
+        log.info("PATCH request for path /applications with application: {}", applicationDto);
+        return applicationService.updateApplication(applicationDto);
     }
 
     @GetMapping("/{appId}")
@@ -57,6 +64,6 @@ public class ApplicationController {
     @PostMapping("/checking/{flag}")
     public void checkingApplications(@PathVariable("flag") boolean flag) {
         log.info("POST request for path /applications/checking/{flag} with flag={}", flag);
-        return applicationService.checkingApplications(flag);
+        applicationService.checkingApplications(flag);
     }
 }

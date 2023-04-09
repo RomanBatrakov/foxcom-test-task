@@ -4,9 +4,12 @@ import com.batrakov.foxcomtesttask.model.Application;
 import com.batrakov.foxcomtesttask.model.Resource;
 import com.batrakov.foxcomtesttask.model.dto.ApplicationDto;
 import com.batrakov.foxcomtesttask.model.dto.ResourceDto;
+import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
@@ -22,16 +25,14 @@ public interface ApplicationMapper {
 
     List<ApplicationDto> toApplicationDtoList(List<Application> applications);
 
-    List<Resource> toResourceList(List<ResourceDto> resourcesDto);
-
     List<ResourceDto> toResourceDtoList(List<Resource> resources);
-
-    @Mapping(target = "resourceType", ignore = true)
-    @Mapping(target = "area", ignore = true)
-    Resource toResource(ResourceDto resourceDto);
 
     @Mapping(target = "resourceTypeId", source = "resourceType.id")
     @Mapping(target = "areaId", source = "area.id")
     @Mapping(target = "applicationId", source = "application.id")
     ResourceDto toResourceDto(Resource resource);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "resources", ignore = true)
+    Application partialUpdate(ApplicationDto applicationDto, @MappingTarget Application application);
 }

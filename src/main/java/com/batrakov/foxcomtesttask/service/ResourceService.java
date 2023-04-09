@@ -16,4 +16,6 @@ public interface ResourceService {
     List<Resource> generateResources(int count, List<HuntingArea> huntingAreaList, List<ResourceType> resourceTypeList);
 
     void updateResourcesWithApplications(List<Application> applications);
+
+    List<Resource> updateResources(List<ResourceDto> resourceDtoList, List<Resource> resourceList);
 }

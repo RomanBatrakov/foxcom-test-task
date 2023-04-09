@@ -1,6 +1,5 @@
 package com.batrakov.foxcomtesttask.controller;
 
-import com.batrakov.foxcomtesttask.model.HuntingArea;
 import com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto;
 import com.batrakov.foxcomtesttask.service.HuntingAreaService;
 import jakarta.validation.Valid;

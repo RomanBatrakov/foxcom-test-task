@@ -21,6 +21,4 @@ public interface ResourceMapper {
     ResourceDto toResourceDto(Resource resource);
 
     List<Resource> toResourceList(List<ResourceDto> resourcesDto);
-
-    List<ResourceDto> toResourceDtoList(List<Resource> resources);
 }
