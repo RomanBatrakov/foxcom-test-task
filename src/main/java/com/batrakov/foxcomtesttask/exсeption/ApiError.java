@@ -1,4 +1,4 @@
-package com.batrakov.foxcomtesttask.exeption;
+package com.batrakov.foxcomtesttask.exсeption;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

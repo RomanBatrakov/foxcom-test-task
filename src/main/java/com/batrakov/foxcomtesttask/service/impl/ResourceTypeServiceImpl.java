@@ -1,7 +1,7 @@
 package com.batrakov.foxcomtesttask.service.impl;
 
 import com.batrakov.foxcomtesttask.dao.ResourceTypeRepository;
-import com.batrakov.foxcomtesttask.exeption.ValidationException;
+import com.batrakov.foxcomtesttask.exсeption.ValidationException;
 import com.batrakov.foxcomtesttask.mapper.ResourceTypeMapper;
 import com.batrakov.foxcomtesttask.model.ResourceType;
 import com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto;

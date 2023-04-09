@@ -1,7 +1,7 @@
 package com.batrakov.foxcomtesttask.service.impl;
 
 import com.batrakov.foxcomtesttask.dao.ApplicationRepository;
-import com.batrakov.foxcomtesttask.exeption.ValidationException;
+import com.batrakov.foxcomtesttask.exсeption.ValidationException;
 import com.batrakov.foxcomtesttask.mapper.ApplicationMapper;
 import com.batrakov.foxcomtesttask.model.Application;
 import com.batrakov.foxcomtesttask.model.ApplicationCategory;
