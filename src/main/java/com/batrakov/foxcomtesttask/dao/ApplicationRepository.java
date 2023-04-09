@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
     List<Application> findByStatusIn(Collection<Status> statuses);
+
     List<Application> findByStatus(Status status);
 }
