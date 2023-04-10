@@ -63,7 +63,9 @@ public class ApplicationValidator {
     }
 
     public static boolean checkApplicationDate(Resource resource, Application application) {
-        return application.getApplicationDate().isAfter(resource.getResourceType().getStartDate()) &&
-                application.getApplicationDate().isBefore(resource.getResourceType().getEndDate());
+        return (application.getApplicationDate().isAfter(resource.getResourceType().getStartDate()) &&
+                application.getApplicationDate().isBefore(resource.getResourceType().getEndDate())) ||
+                application.getApplicationDate().isEqual(resource.getResourceType().getStartDate()) ||
+                application.getApplicationDate().isEqual(resource.getResourceType().getEndDate());
     }
 }
