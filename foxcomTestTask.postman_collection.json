@@ -378,7 +378,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"fullName\": \"Francis111 Gusikowski\",\r\n    \"ticketSeries\": \"HJN\",\r\n    \"ticketNumber\": 1001,\r\n    \"issueDate\": \"2022-08-31\",\r\n    \"applicationDate\": \"2023-05-20\",\r\n    \"category\": \"LOTTERY\",\r\n    \"status\": \"REJECTED\",\r\n    \"resources\": [\r\n        {\r\n            \"id\": 1,\r\n            \"resourceTypeId\": 1,\r\n            \"areaId\": 1,\r\n            \"amount\": 1,\r\n            \"applicationId\": 1,\r\n            \"status\": \"REJECTED\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"resourceTypeId\": 4,\r\n            \"areaId\": 9,\r\n            \"amount\": 14,\r\n            \"applicationId\": 1,\r\n            \"status\": \"REJECTED\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"fullName\": \"Francis111 Gusikowski\",\r\n    \"ticketSeries\": \"HJN\",\r\n    \"ticketNumber\": 1001,\r\n    \"issueDate\": \"2022-08-31\",\r\n    \"applicationDate\": \"2023-05-20\",\r\n    \"category\": \"LOTTERY\",\r\n    \"status\": \"REJECTED\",\r\n    \"resources\": [\r\n        {\r\n            \"id\": 1,\r\n            \"resourceTypeId\": 1,\r\n            \"areaId\": 1,\r\n            \"amount\": 1,\r\n            \"applicationId\": 1,\r\n            \"status\": \"REJECTED\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
