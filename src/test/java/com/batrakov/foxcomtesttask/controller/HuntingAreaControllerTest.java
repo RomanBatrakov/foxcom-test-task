@@ -12,12 +12,12 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.nio.charset.StandardCharsets;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,11 +28,11 @@ class HuntingAreaControllerTest {
     ObjectMapper mapper;
     private MockMvc mvc;
     @Autowired
-    private HuntingAreaController huntingAreaController;
+    private WebApplicationContext context;
 
     @BeforeEach
     public void setup() {
-        mvc = MockMvcBuilders.standaloneSetup(huntingAreaController).build();
+        mvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
 
     @Test
@@ -54,13 +54,12 @@ class HuntingAreaControllerTest {
     @Sql("classpath:HuntingAreaControllerTest.createAreaWithSameName_should409.sql")
     @Test
     @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
-    void createAreaWithSameName_should409() {
+    void createAreaWithSameName_should409() throws Exception {
         HuntingAreaDto dto = HuntingAreaDto.builder().name("Moscow").build();
-        assertThrows(jakarta.servlet.ServletException.class, () -> {
-            mvc.perform(post("/areas").content(mapper.writeValueAsString(dto))
-                                      .characterEncoding(StandardCharsets.UTF_8)
-                                      .contentType(MediaType.APPLICATION_JSON)
-                                      .accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());
-        });
+        mvc.perform(post("/areas").content(mapper.writeValueAsString(dto))
+                                  .characterEncoding(StandardCharsets.UTF_8)
+                                  .contentType(MediaType.APPLICATION_JSON)
+                                  .accept(MediaType.APPLICATION_JSON)).andExpect(status().isConflict());
+
     }
 }

@@ -3686,3 +3686,269 @@ Caused by: java.io.FileNotFoundException: class path resource [com/batrakov/foxc
 2023-04-09 23:01:11 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2023-04-09 23:01:11 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
 2023-04-09 23:01:11 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:38:29 INFO  c.b.f.c.HuntingAreaControllerTest:51 - Starting HuntingAreaControllerTest using Java 18.0.2.1 with PID 12028 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:38:29 INFO  c.b.f.c.HuntingAreaControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:38:29 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:38:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:38:30 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:38:30 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:38:31 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:38:31 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64279ab
+2023-04-10 07:38:31 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:38:31 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:38:32 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:38:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:38:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:38:34 INFO  c.b.f.c.HuntingAreaControllerTest:57 - Started HuntingAreaControllerTest in 5.704 seconds (process running for 7.049)
+2023-04-10 07:38:34 INFO  o.s.m.w.MockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:38:34 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:38:34 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 1 ms
+2023-04-10 07:38:34 INFO  c.b.f.c.HuntingAreaController:24 - POST request for path /areas with huntingArea: com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@11d0bff5
+2023-04-10 07:38:34 INFO  c.b.f.s.i.HuntingAreaServiceImpl:31 - Creating area=com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@11d0bff5
+2023-04-10 07:38:34 WARN  o.h.e.j.s.SqlExceptionHelper:133 - SQL Error: 0, SQLState: 23505
+2023-04-10 07:38:34 ERROR o.h.e.j.s.SqlExceptionHelper:138 - ERROR: duplicate key value violates unique constraint "area_pkey"
+  Подробности: Key (id)=(1) already exists.
+2023-04-10 07:38:34 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:38:34 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:38:34 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:38:34 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:40:11 INFO  c.b.f.c.ResourceTypeControllerTest:51 - Starting ResourceTypeControllerTest using Java 18.0.2.1 with PID 17192 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:40:11 INFO  c.b.f.c.ResourceTypeControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:40:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:40:12 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 100 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:40:12 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:40:12 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:40:13 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:40:13 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@a91119b
+2023-04-10 07:40:13 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:40:13 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:40:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:40:14 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:40:14 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:40:16 INFO  c.b.f.c.ResourceTypeControllerTest:57 - Started ResourceTypeControllerTest in 5.547 seconds (process running for 6.879)
+2023-04-10 07:40:16 INFO  o.s.m.w.MockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:40:16 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:40:16 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 0 ms
+2023-04-10 07:40:16 INFO  c.b.f.c.ResourceTypeController:24 - POST request for path /types with resourceType: com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@23adbd6b
+2023-04-10 07:40:16 INFO  c.b.f.s.i.ResourceTypeServiceImpl:32 - Creating resourceType=com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@23adbd6b
+2023-04-10 07:40:16 WARN  o.h.e.j.s.SqlExceptionHelper:133 - SQL Error: 0, SQLState: 23505
+2023-04-10 07:40:16 ERROR o.h.e.j.s.SqlExceptionHelper:138 - ERROR: duplicate key value violates unique constraint "resource_type_pkey"
+  Подробности: Key (id)=(1) already exists.
+2023-04-10 07:40:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:40:16 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:40:16 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:40:16 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:44:43 INFO  c.b.f.c.HuntingAreaControllerTest:51 - Starting HuntingAreaControllerTest using Java 18.0.2.1 with PID 4784 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:44:43 INFO  c.b.f.c.HuntingAreaControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:44:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:44:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 113 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:44:45 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:44:45 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:44:46 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:44:46 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@231df705
+2023-04-10 07:44:46 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:44:46 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:44:47 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:44:47 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:44:47 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:44:49 INFO  c.b.f.c.HuntingAreaControllerTest:57 - Started HuntingAreaControllerTest in 5.854 seconds (process running for 7.269)
+2023-04-10 07:44:49 INFO  o.s.b.t.m.w.SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:44:49 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:44:49 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 1 ms
+2023-04-10 07:44:49 INFO  c.b.f.c.HuntingAreaController:24 - POST request for path /areas with huntingArea: com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@5cca5ff3
+2023-04-10 07:44:49 INFO  c.b.f.s.i.HuntingAreaServiceImpl:31 - Creating area=com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@5cca5ff3
+2023-04-10 07:44:49 WARN  o.h.e.j.s.SqlExceptionHelper:133 - SQL Error: 0, SQLState: 23505
+2023-04-10 07:44:49 ERROR o.h.e.j.s.SqlExceptionHelper:138 - ERROR: duplicate key value violates unique constraint "area_pkey"
+  Подробности: Key (id)=(1) already exists.
+2023-04-10 07:44:49 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:44:49 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:44:49 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:44:49 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:45:10 INFO  c.b.f.c.HuntingAreaControllerTest:51 - Starting HuntingAreaControllerTest using Java 18.0.2.1 with PID 7532 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:45:10 INFO  c.b.f.c.HuntingAreaControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:45:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:45:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 120 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:45:12 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:45:12 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:45:13 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:45:13 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@430df350
+2023-04-10 07:45:13 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:45:13 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:45:14 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:45:14 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:45:14 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:45:15 INFO  c.b.f.c.HuntingAreaControllerTest:57 - Started HuntingAreaControllerTest in 5.662 seconds (process running for 7.048)
+2023-04-10 07:45:16 INFO  o.s.b.t.m.w.SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:45:16 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:45:16 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 1 ms
+2023-04-10 07:45:16 INFO  c.b.f.c.HuntingAreaController:24 - POST request for path /areas with huntingArea: com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@7dd847a2
+2023-04-10 07:45:16 INFO  c.b.f.s.i.HuntingAreaServiceImpl:31 - Creating area=com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@7dd847a2
+2023-04-10 07:45:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:45:16 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:45:16 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:45:16 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:46:57 INFO  c.b.f.c.HuntingAreaControllerTest:51 - Starting HuntingAreaControllerTest using Java 18.0.2.1 with PID 15288 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:46:57 INFO  c.b.f.c.HuntingAreaControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:46:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:46:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 101 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:46:59 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:46:59 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:46:59 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:46:59 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@111cba40
+2023-04-10 07:46:59 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:46:59 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:47:01 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:47:03 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:47:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:47:04 INFO  c.b.f.c.HuntingAreaControllerTest:57 - Started HuntingAreaControllerTest in 7.891 seconds (process running for 9.276)
+2023-04-10 07:47:05 INFO  o.s.b.t.m.w.SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:47:05 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:47:05 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 2 ms
+2023-04-10 07:47:05 INFO  c.b.f.c.HuntingAreaController:24 - POST request for path /areas with huntingArea: com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@7712df76
+2023-04-10 07:47:05 INFO  c.b.f.s.i.HuntingAreaServiceImpl:31 - Creating area=com.batrakov.foxcomtesttask.model.dto.HuntingAreaDto@7712df76
+2023-04-10 07:47:05 WARN  o.h.e.j.s.SqlExceptionHelper:133 - SQL Error: 0, SQLState: 23505
+2023-04-10 07:47:05 ERROR o.h.e.j.s.SqlExceptionHelper:138 - ERROR: duplicate key value violates unique constraint "area_pkey"
+  Подробности: Key (id)=(1) already exists.
+2023-04-10 07:47:05 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:47:05 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:47:06 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:47:06 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:50:21 INFO  c.b.f.c.ResourceTypeControllerTest:51 - Starting ResourceTypeControllerTest using Java 18.0.2.1 with PID 5276 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:50:21 INFO  c.b.f.c.ResourceTypeControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:50:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:50:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 98 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:50:23 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:50:23 INFO  o.h.Version:44 - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-10 07:50:23 INFO  c.z.h.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-04-10 07:50:23 INFO  c.z.h.p.HikariPool:565 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@70b48eb3
+2023-04-10 07:50:23 INFO  c.z.h.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-04-10 07:50:23 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:25 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:50:25 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:50:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:50:26 INFO  c.b.f.c.ResourceTypeControllerTest:57 - Started ResourceTypeControllerTest in 5.508 seconds (process running for 6.864)
+2023-04-10 07:50:26 INFO  o.s.b.t.m.w.SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:50:26 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:50:26 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 1 ms
+2023-04-10 07:50:27 INFO  c.b.f.c.ResourceTypeController:24 - POST request for path /types with resourceType: com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@6334c0d8
+2023-04-10 07:50:27 INFO  c.b.f.s.i.ResourceTypeServiceImpl:32 - Creating resourceType=com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@6334c0d8
+2023-04-10 07:50:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:50:27 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:50:27 INFO  c.z.h.HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2023-04-10 07:50:27 INFO  c.z.h.HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2023-04-10 07:50:27 INFO  c.b.f.c.ResourceTypeControllerTest:51 - Starting ResourceTypeControllerTest using Java 18.0.2.1 with PID 5276 (started by Roman_B in C:\Users\Roman_B\IdeaProjects\foxcom-test-task)
+2023-04-10 07:50:27 INFO  c.b.f.c.ResourceTypeControllerTest:632 - No active profile set, falling back to 1 default profile: "default"
+2023-04-10 07:50:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:138 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 07:50:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2023-04-10 07:50:27 INFO  o.h.j.i.u.LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 07:50:27 INFO  c.z.h.HikariDataSource:110 - HikariPool-2 - Starting...
+2023-04-10 07:50:27 INFO  c.z.h.p.HikariPool:565 - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1a7f2d34
+2023-04-10 07:50:27 INFO  c.z.h.HikariDataSource:123 - HikariPool-2 - Start completed.
+2023-04-10 07:50:27 INFO  SQL dialect:66 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - relation "resource" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "application" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "area" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource" does not exist, skipping
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:226 - SQL Warning Code: 0, SQLState: 00000
+2023-04-10 07:50:27 WARN  o.h.e.j.s.SqlExceptionHelper:227 - table "resource_type" does not exist, skipping
+2023-04-10 07:50:27 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 07:50:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:50:28 INFO  c.b.f.c.ResourceTypeControllerTest:57 - Started ResourceTypeControllerTest in 0.959 seconds (process running for 8.436)
+2023-04-10 07:50:28 INFO  o.s.b.t.m.w.SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2023-04-10 07:50:28 INFO  o.s.t.w.s.TestDispatcherServlet:532 - Initializing Servlet ''
+2023-04-10 07:50:28 INFO  o.s.t.w.s.TestDispatcherServlet:554 - Completed initialization in 0 ms
+2023-04-10 07:50:28 INFO  c.b.f.c.ResourceTypeController:24 - POST request for path /types with resourceType: com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@bb3487c
+2023-04-10 07:50:28 INFO  c.b.f.s.i.ResourceTypeServiceImpl:32 - Creating resourceType=com.batrakov.foxcomtesttask.model.dto.ResourceTypeDto@bb3487c
+2023-04-10 07:50:28 WARN  o.h.e.j.s.SqlExceptionHelper:133 - SQL Error: 0, SQLState: 23505
+2023-04-10 07:50:28 ERROR o.h.e.j.s.SqlExceptionHelper:138 - ERROR: duplicate key value violates unique constraint "resource_type_pkey"
+  Подробности: Key (id)=(1) already exists.
+2023-04-10 07:50:28 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 07:50:28 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl:585 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-10 07:50:28 INFO  c.z.h.HikariDataSource:350 - HikariPool-2 - Shutdown initiated...
+2023-04-10 07:50:28 INFO  c.z.h.HikariDataSource:352 - HikariPool-2 - Shutdown completed.
